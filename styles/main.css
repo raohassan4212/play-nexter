@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #c69963;
+  --color-primary-dark: #b28451;
+  --color-secondary: rgb(16, 29, 44);
+  --color-grey-light-1: #f9f7f6;
+  --color-grey-light-2: #aaa;
+  --color-grey-dark-1: #54483a;
+  --color-grey-dark-2: #6d5d4b;
+}
+
+.main-container {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns:
+    80px minmax(50px, 1fr) repeat(6, minmax(min-content, 200px))
+    minmax(50px, 1fr);
+  grid-template-rows: 80vh 100vh 40vw repeat(3, min-content);
+
+  grid-template-areas:
+    "nav header header header header header realtor realtor realtor"
+    "nav . services services services services services services ."
+    "nav goals goals goals goals story story story story"
+    "nav . home home home home home home ."
+    "nav gallery gallery gallery gallery gallery gallery gallery gallery"
+    "nav footer footer footer footer footer footer footer footer";
+}
+
+.nav {
+  grid-area: nav;
+  background-color: var(--color-primary);
+  text-align: center;
+}
+
+.burger-icon {
+  margin-top: 40px;
+}
+
+.header {
+  grid-area: header;
+  background: linear-gradient(rgba(16, 29, 44, 0.83), rgba(16, 29, 44, 0.83)),
+    url(/assets/img/hero.jpeg) center center/cover;
+  padding: 30px 50px;
+  display: grid;
+  grid-template-rows: minmax(50px, 1fr) 100px minmax(70px, 1fr) 30px 100px;
+}
+
+.logo {
+  width: 150px;
+  justify-self: center;
+}
+
+.header h1 {
+  font-size: 16px;
+  font-family: var(--font-primary);
+  color: var(--color-primary);
+}
+
+.header p {
+  font-size: 32px;
+  font-family: var(--font-display);
+  color: white;
+  font-weight: bold;
+}
+
+.header h3 {
+  font-size: 17px;
+  font-family: var(--font-display);
+  color: white;
+  background: var(--color-primary);
+  justify-self: start;
+  align-self: start;
+  font-weight: lighter;
+  padding: 15px;
+}
+
+.company-logos {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(min-content, 1fr));
+}
+
+.company-logos > img {
+  width: 80%;
+  height: 30px;
+}
+
+.realtor {
+  grid-area: realtor;
+  background: var(--color-secondary);
+  color: white;
+  display: grid;
+  align-content: center;
+  grid-template-rows: min-content min-content;
+  grid-row-gap: 30px;
+}
+
+.realtor > h1 {
+  font-size: 20px;
+  justify-self: center;
+}
+
+.realtor-list {
+  display: grid;
+  grid-template-columns: min-content max-content;
+  grid-template-rows: min-content min-content min-content;
+  justify-content: center;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  align-items: center;
+}
+
+.realtor-list > img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.realtor-list h2 {
+  font-size: 15px;
+}
+
+.realtor-list p {
+  font-size: 10px;
+}
+
+.services {
+  grid-area: services;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(30px, 1fr));
+  /* grid-template-rows: repeat(2 min-content); */
+  align-self: center;
+  grid-column-gap: 20px;
+  grid-row-gap: 80px;
+  margin: 20px 0;
+}
+
+.service {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-row-gap: 10px;
+  grid-column-gap: 20px;
+  align-content: start;
+}
+
+.serviceIcon {
+  width: 5rem;
+  height: 5rem;
+  grid-row: 1 / span 2;
+  stroke: var(--color-primary);
+  fill: var(--color-primary);
+  transform: translateY(-1rem);
+}
+
+.serviceHeading {
+    font-size: 20px;
+    font-family: var(--font-display);
+}
+
+.serviceContent {
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.goals {
+  grid-area: goals;
+  background-color: yellow;
+}
+
+.story {
+  grid-area: story;
+  background-color: orange;
+}
+
+.home {
+  grid-area: home;
+  background-color: aqua;
+}
+
+.gallery {
+  grid-area: gallery;
+  background-color: blueviolet;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: brown;
+}
