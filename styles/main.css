@@ -385,5 +385,31 @@
 
 .footer {
   grid-area: footer;
-  background-color: brown;
+  background: var(--color-secondary);
+  display: grid;
+  grid-template-columns: repeat(6, 220px);
+  column-gap: 15px;
+  row-gap: 25px;
+  justify-content: center;
+  color: white;
+  box-sizing: border-box;
+  padding: 20px 0;
+}
+
+.footer-boxs {
+  font-size: 16px;
+  font-family: var(--font-primary);
+  font-weight: lighter;
+  /* background: rgba(255, 255, 255, 0.1); */
+  text-transform: uppercase;
+  padding: 15px;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.copyright {
+  grid-column: 2/6;
+  text-align: center;
+  font-size: 14px;
 }
