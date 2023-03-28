@@ -131,8 +131,7 @@
 .services {
   grid-area: services;
   display: grid;
-  grid-template-columns: repeat(3, minmax(30px, 1fr));
-  /* grid-template-rows: repeat(2 min-content); */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   align-self: center;
   grid-column-gap: 20px;
   grid-row-gap: 80px;
@@ -177,7 +176,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* flex-flow: column; */
   position: relative;
 }
 
@@ -386,21 +384,23 @@
 .footer {
   grid-area: footer;
   background: var(--color-secondary);
-  display: grid;
-  grid-template-columns: repeat(6, 220px);
-  column-gap: 15px;
-  row-gap: 25px;
-  justify-content: center;
+
   color: white;
   box-sizing: border-box;
   padding: 20px 0;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  column-gap: 15px;
+  justify-content: center;
 }
 
 .footer-boxs {
   font-size: 16px;
   font-family: var(--font-primary);
   font-weight: lighter;
-  /* background: rgba(255, 255, 255, 0.1); */
   text-transform: uppercase;
   padding: 15px;
   text-align: center;
@@ -409,7 +409,58 @@
 }
 
 .copyright {
-  grid-column: 2/6;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 35px;
   text-align: center;
   font-size: 14px;
+}
+
+@media only screen and (max-width: 1080px) {
+  .main-container {
+    grid-template-areas:
+      "nav header header header header header realtor realtor realtor"
+      "nav . services services services services services services ."
+      "nav goals goals goals goals goals goals goals goals"
+      "nav story story story story story story story story"
+      "nav . home home home home home home ."
+      "nav gallery gallery gallery gallery gallery gallery gallery gallery"
+      "nav footer footer footer footer footer footer footer footer" !important;
+  }
+  .goal-out {
+    width: 40%;
+    height: 40%;
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  .main-container {
+    display: grid;
+    grid-template-columns:
+      minmax(50px, 1fr) repeat(6, minmax(min-content, 200px))
+      minmax(50px, 1fr);
+    grid-template-rows: repeat(9, min-content);
+    grid-template-areas:
+      "nav nav nav nav nav nav nav nav"
+      "header header header header header header header header"
+      "realtor realtor realtor realtor realtor realtor realtor realtor"
+      ". services services services services services services ."
+      "goals goals goals goals goals goals goals goals"
+      "story story story story story story story story"
+      ". home home home home home home ."
+      "gallery gallery gallery gallery gallery gallery gallery gallery"
+      "footer footer footer footer footer footer footer footer" !important;
+  }
+
+  .nav {
+    /* grid-area: nav;
+    background-color: var(--color-primary);
+    text-align: center; */
+  }
+
+  .burger-icon {
+    margin-top: 0px;
+    padding: 30px 0;
+  }
+
 }
